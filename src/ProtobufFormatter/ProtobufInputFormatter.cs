@@ -10,10 +10,7 @@ namespace ProtobufFormatter
     {
         private static Lazy<RuntimeTypeModel> model = new Lazy<RuntimeTypeModel>(CreateTypeModel);
 
-        public static RuntimeTypeModel Model
-        {
-            get { return model.Value; }
-        }
+        public static RuntimeTypeModel Model => model.Value;
 
         public override Task<InputFormatterResult> ReadRequestBodyAsync(InputFormatterContext context)
         {
@@ -22,15 +19,11 @@ namespace ProtobufFormatter
             MediaTypeHeaderValue requestContentType = null;
             MediaTypeHeaderValue.TryParse(request.ContentType, out requestContentType);
 
-
             object result = Model.Deserialize(context.HttpContext.Request.Body, null, type);
             return InputFormatterResult.SuccessAsync(result);
         }
 
-        public override bool CanRead(InputFormatterContext context)
-        {
-            return true;
-        }
+        public override bool CanRead(InputFormatterContext context) => true;
 
         private static RuntimeTypeModel CreateTypeModel()
         {

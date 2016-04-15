@@ -13,10 +13,7 @@ namespace ProtobufFormatter
 
         public string ContentType { get; private set; }
 
-        public static RuntimeTypeModel Model
-        {
-            get { return model.Value; }
-        }
+        public static RuntimeTypeModel Model => model.Value;
 
         public ProtobufOutputFormatter()
         {
