@@ -1,6 +1,6 @@
 # ProtobufFormatters
 
-ASP.NET MVC Core 1.0 Protocol Buffer formatters inspired by https://github.com/damienbod/AspNetMvc6ProtobufFormatters
+ASP.NET MVC Core 1.0 Protocol Buffer formatters inspired by https://github.com/damienbod/AspNetMvc6ProtobufFormatters with refactoring formatters to class library. Enables adding them to arbitrary MVC project exactly like the built in Json formatters.
 
 ## Web API Usage
 
