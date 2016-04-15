@@ -1,0 +1,26 @@
+﻿{
+  "name": "ProtobufFormatter",
+  "version": "1.0.0-*",
+  "description": "ProtobufFormatter Class Library",
+  "authors": [ "Damien Pontifex" ],
+  "tags": [ "Protocol Buffers" ],
+  "projectUrl": "https://github.com/damienpontifex/ProtobufFormatter",
+  
+  "dependencies": {
+    "Microsoft.AspNet.Mvc.Core": "6.0.0-rc1-final",
+    "protobuf-net": "2.1.0-alpha-1"
+  },
+  
+  "configurations": {
+    "Release": {
+      "compilationOptions": {
+        "optimize": true
+      }
+    }
+  },
+  
+  "frameworks": {
+    "net451": { },
+    "dotnet5.4": { }
+  }
+}
