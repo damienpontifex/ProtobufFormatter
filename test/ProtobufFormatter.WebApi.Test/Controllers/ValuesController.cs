@@ -1,4 +1,4 @@
-﻿using Microsoft.AspNet.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using ProtobufFormatter.WebApi.Test.Models;
 
 namespace ProtobufFormatter.WebApi.Test.Controllers
@@ -7,19 +7,21 @@ namespace ProtobufFormatter.WebApi.Test.Controllers
     public class ValuesController
     {
         [HttpGet("{id}")]
-        public ProtobufModelDto Get(int id)
+        public IActionResult Get(int id)
         {
-            return new ProtobufModelDto
+            var model = new ProtobufModelDto
             {
                 Id = 1,
                 Name = "HelloWorld",
                 StringValue = "My first MVC 6 Protobuf service"
             };
+            
+            return new OkObjectResult(model);
         }
 
         [HttpPost]
         [Route("")]
-        public void Post([FromBody]ProtobufModelDto value)
+        public void Post([FromBody] ProtobufModelDto value)
         {
             // Yes the value can be sent as a protobuf item.
             var myValue = value;

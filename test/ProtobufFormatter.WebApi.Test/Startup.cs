@@ -1,13 +1,11 @@
-﻿using Microsoft.AspNet.Builder;
-using Microsoft.AspNet.Hosting;
+﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Logging;
 
 namespace ProtobufFormatter.WebApi.Test
 {
     public class Startup
     {
-        public Startup(IHostingEnvironment env)
+        public Startup()
         {
         }
 
@@ -17,11 +15,9 @@ namespace ProtobufFormatter.WebApi.Test
                 .AddProtobufFormatters();
         }
 
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
+        public void Configure(IApplicationBuilder app)
         {
             app.UseMvc();
         }
-
-        public static void Main(string[] args) => WebApplication.Run<Startup>(args);
     }
 }

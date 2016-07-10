@@ -1,4 +1,4 @@
-﻿using Microsoft.AspNet.Mvc.Formatters;
+﻿using Microsoft.AspNetCore.Mvc.Formatters;
 using Microsoft.Net.Http.Headers;
 using ProtoBuf.Meta;
 using System;
@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace ProtobufFormatter
 {
-    public class ProtobufOutputFormatter : OutputFormatter
+    public class ProtobufOutputFormatter : TextOutputFormatter
     {
         private static Lazy<RuntimeTypeModel> model = new Lazy<RuntimeTypeModel>(CreateTypeModel);
 
@@ -19,7 +19,7 @@ namespace ProtobufFormatter
         {
             ContentType = "application/x-protobuf";
             SupportedMediaTypes.Add(MediaTypeHeaderValue.Parse("application/x-protobuf"));
-            SupportedEncodings.Add(Encoding.GetEncoding("utf-8"));
+            SupportedEncodings.Add(Encoding.UTF8);
         }
 
         private static RuntimeTypeModel CreateTypeModel()
@@ -29,7 +29,7 @@ namespace ProtobufFormatter
             return typeModel;
         }
 
-        public override Task WriteResponseBodyAsync(OutputFormatterWriteContext context)
+        public override Task WriteResponseBodyAsync(OutputFormatterWriteContext context, Encoding selectedEncoding)
         {
             var response = context.HttpContext.Response;
 

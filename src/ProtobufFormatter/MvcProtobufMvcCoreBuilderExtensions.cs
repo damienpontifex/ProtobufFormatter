@@ -1,8 +1,8 @@
-﻿using Microsoft.AspNet.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.DependencyInjection.Extensions;
-using Microsoft.Extensions.OptionsModel;
 using System;
+using Microsoft.Extensions.Options;
 
 namespace ProtobufFormatter
 {
