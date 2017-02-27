@@ -32,6 +32,7 @@ namespace ProtobufFormatter
         public override Task WriteResponseBodyAsync(OutputFormatterWriteContext context, Encoding selectedEncoding)
         {
             var response = context.HttpContext.Response;
+            response.ContentType = "application/x-protobuf";
 
             Model.Serialize(response.Body, context.Object);
             return Task.FromResult(response);
